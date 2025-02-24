@@ -42,7 +42,7 @@ print("0. 커스텀 검색")
 print("1. S&P500")
 print("2. 나스닥 (NASDAQ)")
 print("3. 다우존스 (DOW)")
-print("4. ")
+print("4. 제작중...")
 user_input = input("\n원하시는 항목을 숫자로 입력한 뒤, Enter 키를 눌러주세요: ")
 
 # Decode HTML entities (if any)
@@ -51,6 +51,8 @@ decoded_user_input = html.unescape(user_input)
 # Handle the search term using the switch-case structure
 # Use .get() to handle cases not found in the dictionary
 search_term = search_switch.get(decoded_user_input, handle_default)()
+if search_term == "":
+    search_term = input("\n원하시는 검색어를 입력한 뒤, Enter 키를 눌러주세요: ")
 
 chrome_options = Options()
 # Local chrome driver path
