@@ -60,11 +60,14 @@ try:
     driver = webdriver.Chrome(service=service, options=chrome_options)
     # Change if default download path is not Downloads
     download_dir = os.path.join(os.path.expanduser("~"), "Downloads")
-    target_dir = os.path.join(os.getcwd(), 'raw_data')  # Directory where you want to move the file
-
+    raw_dir = os.path.join(os.getcwd(), 'raw_data')
+    processed_dir = os.path.join(os.getcwd(), 'processed_data')
+    
     # Ensure the target directory exists
-    if not os.path.exists(target_dir):
-        os.makedirs(target_dir)
+    if not os.path.exists(raw_dir):
+        os.makedirs(raw_dir)
+    if not os.path.exists(processed_dir):
+        os.makedirs(processed_dir)
 
     # Capture the list of files in the download directory before downloading
     before_download = set(os.listdir(download_dir))
@@ -119,7 +122,7 @@ try:
     # If the file was found, move it to the target directory
     if downloaded_file:
         source_path = os.path.join(download_dir, downloaded_file)
-        destination_path = os.path.join(target_dir, downloaded_file)
+        destination_path = os.path.join(raw_dir, downloaded_file)
         
         # Check if the destination file already exists and modify the filename if necessary
         base_name, extension = os.path.splitext(downloaded_file)
@@ -127,11 +130,11 @@ try:
         raw_filename = f"Raw_{base_name}_{timestamp}{extension}"
         raw_xlsx_filename =f"Raw_{base_name}_{timestamp}.xlsx"
         processed_filename =  f"Processed_{base_name}_{timestamp}.xlsx"
-        destination_path = os.path.join(target_dir, raw_filename)
+        destination_path = os.path.join(raw_dir, raw_filename)
 
         shutil.move(source_path, destination_path)
         df = pd.read_excel(destination_path, engine='xlrd')
-        xlsx_file_path = os.path.join(target_dir, raw_xlsx_filename)
+        xlsx_file_path = os.path.join(raw_dir, raw_xlsx_filename)
         df.to_excel(xlsx_file_path, index=False)
         downloaded_file = xlsx_file_path  # Update the variable to the new path
         

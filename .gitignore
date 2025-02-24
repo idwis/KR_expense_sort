@@ -135,6 +135,12 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+chromedriver-win64
+chromedriver-win64/
+raw_data
+raw_data/
+processed_data
+processed_data/
 
 # Spyder project settings
 .spyderproject
