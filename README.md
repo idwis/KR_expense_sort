@@ -4,7 +4,7 @@ Sorts the expenses of Korean ETFs by category.
 
 ## Prerequisites
 
-*   Google Chrome must be installed.
+*   Latest version of Google Chrome must be installed.
 
 ## Installation (Executable - Recommended)
 
