@@ -4,8 +4,7 @@ Sorts the expenses of Korean ETFs by category.
 
 ## Prerequisites
 
-*   A Python environment is required. Anaconda is recommended on Windows (as it was used for development).
-*   Google Chrome must also be installed.
+*   Google Chrome must be installed.
 
 ## Installation (Executable - Recommended)
 
@@ -18,7 +17,8 @@ Sorts the expenses of Korean ETFs by category.
 1.  Clone the repository.
 2.  Download the latest version of [ChromeDriver](https://googlechromelabs.github.io/chrome-for-testing/).
 3.  Unzip the downloaded file into the `KR_expense_sort` directory (the root of this project).
-4.  Run `pip install selenium pandas xlrd>=2.0.1 openpyxl` to install the required modules.
+4.  A Python environment is required. Anaconda is recommended on Windows (as it was used for development).
+5.  Run `pip install selenium pandas xlrd>=2.0.1 openpyxl` to install the required modules.
 
 ## How to Run
 
